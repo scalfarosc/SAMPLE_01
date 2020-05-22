@@ -25,6 +25,7 @@
 
     <build>
         <plugins>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -37,6 +38,8 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
+            
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -45,6 +48,9 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            
+            
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -70,6 +76,34 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            <plugin>
+  <groupId> org.codehaus.cargo </groupId>
+  <artifactId> cargo-maven2-plugin </artifactId>
+  <version> $ {cargo.plugin.version} </version>
+  <configuración>
+    <contenedor>
+      <containerId> jboss7x </containerId>
+      <type> remoto </type>
+    </container>
+    <configuración>
+      <type> runtime </type>
+      <propiedades>
+        <cargo.hostname> production27 </cargo.hostname>
+        <cargo.jboss.management-native.port> 19999 </cargo.jboss.management-native.port>
+      </properties>
+    </configuration>
+  </configuration>
+  <dependencias>
+    <dependencia>
+      <groupId> org.jboss.as </groupId>
+      <artifactId> jboss-as-controller-client </artifactId>
+      <version> 7.0.2.Final </version>
+    </dependency>
+  </dependencies>
+</plugin>
+            
+            
         </plugins>
     </build>
 
